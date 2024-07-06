@@ -1,0 +1,929 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Allura&family=Exo+2&family=Inter:wght@300&family=Nunito&family=Quicksand&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&family=Inter:wght@400;700&family=Merriweather:wght@400;700&family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans|Source+Serif+Pro|Andika|Merriweather|Lato|Montserrat&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Truculenta:opsz,wdth@12..72,98.2&display=swap');
+
+html,
+body {
+  /* font-family: 'Quicksand', sans-serif !important; */
+  /* font-family: 'Nunito', sans-serif; */
+  /* font-family: 'Inter', sans-serif; */
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 auto !important;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* CSS to hide nextjs error modal */
+nextjs-portal {
+  display: none;
+}
+
+p, span, h1, h2, h3, h4, h5, h6, label{
+  word-break: auto-phrase !important;
+}
+
+.truculenta-abc {
+  font-family: "Truculenta", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 98.2;
+}
+
+.MuiAutocomplete-listbox {
+  text-align: center !important;
+}
+
+.carousel .slide {
+  min-width: 9% !important;
+}
+
+.linearGradientChapter {
+  background: linear-gradient(180deg, #ddd2d2, #FFFFFF);
+}
+
+.carousel .carousel-item {
+  width: 30%;
+  display: inline-block;
+}
+
+.widthNovelGenreCard {
+  width: 12.5rem !important;
+}
+
+.textThemeColor {
+  color: #20A7FE;
+}
+
+.backgroundTheme {
+  background-color: #20A7FE;
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-width: 0px !important;
+}
+
+.css-1h51icj-MuiAutocomplete-root .MuiOutlinedInput-root {
+  padding: 0px !important;
+}
+
+.css-18nc3u2 .MuiOutlinedInput-root .MuiAutocomplete-input {
+  padding: 0px !important;
+}
+
+/* package start */
+.gradientPackageOne {
+  background: linear-gradient(76deg, #40404000 -112%, #c59300)
+}
+
+.gradientPackageTwo {
+  background: linear-gradient(76deg, #0805df00 -112%, #0058a7)
+}
+
+.gradientPackageThree {
+  background: linear-gradient(76deg, #40404014 -112%, #d11839)
+}
+
+.buttonGradient {
+  background-image: linear-gradient(90deg, #1c9dfe 0%, #127afe 38.8%, #023ff4 99.34%)
+}
+
+.coinsCard {
+  background: linear-gradient(76deg, #0805df00 -112%, #0058a7)
+}
+/* package end */
+
+.ImageZoom {
+  transition: .5s all ease-in-out;
+}
+
+.ImageZoom:hover {
+  transform: scale(1.2);
+}
+
+.slick-track {
+  margin-left: 0px !important;
+}
+
+/* ---- popular card tag start ---- */
+.tag {
+  min-width: 10px;
+  height: 40px;
+  background-color: gray;
+  position: absolute;
+  top: 3px;
+  padding: 0 15px;
+  display: inline-block;
+}
+
+.tag-title {
+  line-height: 15px;
+  color: #f0f0f0;
+  -webkit-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  -moz-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+.tag-tail,
+.tag-left .tag-tail {
+  position: absolute;
+  top: 0;
+  right: -25px;
+}
+
+[class^="tag-tail"]:after,
+[class^="tag-tail"].tag-tail:before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+}
+
+.tag-tail:after,
+.tag-left .tag-tail:after {
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid gray;
+}
+
+.tag-tail:before,
+.tag-left .tag-tail:before {
+  border-right: 25px solid transparent;
+  border-top: 25px solid gray;
+}
+
+.gradientBlueOdd {
+  background-image: linear-gradient(131.45deg, #1000ff42, #4ca998);
+}
+
+.gradientBlueEven {
+  background-image: linear-gradient(131.45deg, #20A7FE, #395fdf);
+}
+
+/* ---- popular card tag End ---- */
+.CategoryHeading {
+  position: relative;
+  padding-bottom: 1px;
+}
+
+.CategoryHeading::before {
+  content: "";
+  position: absolute;
+  width: 2%;
+  height: 1px;
+  bottom: 2px;
+  left: 64px;
+  border: 2px solid #20A7FE;
+}
+
+/* --- Ranking start --- */
+.rankingHeading {
+  position: relative;
+  padding-bottom: 1px;
+}
+
+.rankingHeading::before {
+  content: "";
+  position: absolute;
+  width: 22%;
+  height: 1px;
+  bottom: 0;
+  left: 59%;
+  border-bottom: 2px solid #20A7FE;
+}
+
+.footerHeading {
+  position: relative;
+  padding-bottom: 1px;
+}
+
+.rankingParentHeading {
+  margin: 10px auto;
+  max-width: 400px;
+  position: relative;
+}
+
+.rankingParentHeading:before {
+  content: "";
+  display: block;
+  width: 245px;
+  height: 1px;
+  background: rgb(71, 70, 70);
+  left: -155px;
+  top: 50%;
+  position: absolute;
+}
+
+.rankingParentHeading:after {
+  content: "";
+  display: block;
+  width: 245px;
+  height: 1px;
+  background: rgb(71, 70, 70);
+  right: -155px;
+  top: 50%;
+  position: absolute;
+}
+
+.poularWeekCard {
+  display: flex !important;
+}
+
+.MuiRating-iconEmpty {
+  color: white
+}
+
+.hoverShadow:hover {
+  box-shadow: 4px 4px 4px 4px gray !important;
+  z-index: 10;
+}
+
+.authorGradient {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.authorGradient::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(180deg, transparent 0 31%, #040404 94% 100%)
+}
+
+.coverImageContainer {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.coverImageContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(180deg, transparent 0 30%, #040404 70% 100%);
+}
+
+.coverImageContainer .coverImageGradient {
+  width: 100%;
+  height: 550px;
+}
+
+.zoomEffect {
+  transition: transform .2s;
+}
+
+.zoomEffect:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 992px) {
+  .card {
+    width: 220px !important;
+    height: 255px !important;
+  }
+}
+
+.containerImage {
+  position: relative;
+  width: 200px !important;
+  height: 240px !important;
+}
+
+.textImage {
+  position: absolute;
+  bottom: -88%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.761);
+  color: #fff;
+  padding: 1px 16px 0px 16px;
+  box-sizing: border-box;
+  transition: bottom 0.5s ease;
+  text-align: center;
+}
+
+.containerImage:hover .textImage {
+  bottom: -3px;
+}
+
+/* New Release Section start */
+.NewReleaseCard {
+  width: 200px !important;
+  height: 237px !important;
+  background: white;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.4s ease-out;
+}
+
+.NewReleaseCard:hover:before {
+  opacity: 1;
+}
+
+.NewReleaseCard:hover .info {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.NewReleaseCard:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.NewReleaseCard .releaseImage {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+}
+
+.NewReleaseCard .info {
+  position: relative;
+  z-index: 3;
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+  top: 128px;
+  left: 8px;
+}
+
+.NewReleaseCard .info h1 {
+  margin: 0px;
+}
+
+.NewReleaseCard .info p {
+  letter-spacing: 1px;
+  font-size: 15px;
+  /* margin-top: 8px; */
+}
+
+.NewReleaseCard .info button {
+  padding: 0.6rem;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.NewReleaseCard .info button:hover {
+  background: dodgerblue;
+  color: white;
+}
+/* New Release Section End */
+
+/* New Release Section End */
+@media only screen and (max-width: 1024px) and (min-width: 600px) {
+  .latestUpdateheading {
+    position: relative;
+    padding-bottom: 0px;
+  }
+
+  .latestUpdateheading::before {
+    content: "";
+    position: absolute;
+    width: 7%;
+    height: 1px;
+    bottom: 0;
+    left: 14%;
+    border-bottom: 3px solid #20A7FE;
+  }
+
+  .originalWorkheading {
+    position: relative;
+    padding-bottom: 0px;
+  }
+
+  .originalWorkheading::before {
+    content: "";
+    position: absolute;
+    width: 12%;
+    height: 1px;
+    bottom: 0;
+    left: 19%;
+    border-bottom: 3px solid #20A7FE;
+  }
+
+  .NovelGenreheading {
+    position: relative;
+    padding-bottom: 0px;
+  }
+
+  .NovelGenreheading::before {
+    content: "";
+    position: absolute;
+    width: 9%;
+    height: 1px;
+    bottom: 0;
+    left: 15%;
+    border-bottom: 3px solid #20A7FE;
+  }
+
+  .card {
+    width: 200px !important;
+    height: 255px !important;
+  }
+
+  .NewReleaseCard {
+    width: 165px !important;
+    height: 237px !important;
+  }
+
+  .coverImageContainer .coverImageGradient {
+    width: 100%;
+    height: 472px;
+  }
+
+  .containerImage {
+    position: relative;
+    width: 170px !important;
+    height: 240px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .latestUpdateheading {
+    position: relative;
+    padding-bottom: 0px;
+  }
+
+  .latestUpdateheading::before {
+    content: "";
+    position: absolute;
+    width: 15%;
+    height: 1px;
+    bottom: 0;
+    left: 29%;
+    border-bottom: 3px solid #20A7FE;
+  }
+
+  .originalWorkheading {
+    position: relative;
+    padding-bottom: 0px;
+  }
+
+  .originalWorkheading::before {
+    content: "";
+    position: absolute;
+    width: 15%;
+    height: 1px;
+    bottom: 0;
+    left: 32%;
+    border-bottom: 3px solid #20A7FE;
+  }
+
+  .NovelGenreheading {
+    position: relative;
+    padding-bottom: 0px;
+  }
+
+  .NovelGenreheading::before {
+    content: "";
+    position: absolute;
+    width: 15%;
+    height: 1px;
+    bottom: 0;
+    left: 37%;
+    border-bottom: 3px solid #20A7FE;
+  }
+
+  /* ---- New Release start ---- */
+  .widthNovelGenreCard {
+    width: 9.6rem !important;
+  }
+
+  .NewReleaseCard {
+    width: 164px !important;
+    height: 225px !important;
+  }
+
+  .NewReleaseCard:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .NewReleaseCard .releaseImage {
+    width: 200px;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    aspect-ratio: 1/1;
+  }
+
+  .NewReleaseCard .info {
+    position: relative;
+    z-index: 3;
+    color: white;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s;
+    top: -80px !important;
+    left: 8px;
+    padding-right: 14px;
+  }
+
+  .NewReleaseCard .info h1 {
+    margin: 0px;
+    font-size: 11px;
+  }
+
+  .NewReleaseCard .info p {
+    letter-spacing: 1px;
+    font-size: 9px !important;
+  }
+
+  .NewReleaseCard .info button {
+    padding: 0.6rem;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease;
+  }
+
+  .NewReleaseCard .info button:hover {
+    background: dodgerblue;
+    color: white;
+  }
+  /* ---- New Release End ---- */
+
+  .backgroundFrame {
+    padding: 4px 0px;
+  }
+
+  .backgroundFrameOdd {
+    padding: 2px 0px;
+  }
+
+  .card {
+    width: 158px !important;
+    height: 220px !important;
+  }
+
+  .card .card-details {
+    padding: 10px !important;
+  }
+
+  .go-corner {
+    margin-right: -75px !important;
+    width: 0px !important;
+  }
+
+  .latestCard:hover {
+    .go-corner {
+      margin-right: -40px;
+    }
+
+    .go-arrow {
+      opacity: 1;
+    }
+  }
+}
+
+.gradientClass {
+  background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.583));
+}
+
+.gradientClassCards {
+  background-image: linear-gradient(to right, rgba(3, 1, 1, 0.608), rgba(0, 0, 0, 0.583));
+}
+
+.BannerLinear {
+  background-image: linear-gradient(to left, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
+}
+
+/* Banner css start */
+.Bannercard {
+  width: 100%;
+  height: 400px;
+  border-radius: 15px;
+  padding: 1.5rem;
+  background: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: 0.4s ease-out;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+.Bannercard .info button {
+  padding: 0.6rem;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.Bannercard .info button:hover {
+  background: dodgerblue;
+  color: white;
+}
+
+.Bannercard img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: .8;
+}
+
+@media only screen and (min-width: 1024px) {
+  .slick-next {
+    right: 5px;
+    width: 20px;
+    height: 42px;
+  }
+
+  .slick-prev {
+    left: -13px;
+    z-index: 10;
+    height: 42px;
+    width: 20px;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 35px;
+    color: black;
+  }
+}
+
+/* Most Popular Section start */
+.cardPopular {
+  overflow: hidden;
+}
+
+.popularImageParent {
+  transition: all ease-in-out .4s;
+  background-size: 100%;
+}
+
+.cardPopular:hover .popularImageParent {
+  transform: scale(1.1) rotate(3deg);
+}
+/* Most Popular Section End */
+
+/* Latest Update Section start */
+.go-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  background-color: #00838d;
+  border-radius: 0 4px 0 32px;
+}
+
+.latestCard {
+  top: 0px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 4px;
+  text-decoration: none;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+
+  .go-corner {
+    background-color: #00838d;
+    height: 100%;
+    width: 45px;
+    padding-right: 9px;
+    border-radius: 0;
+    transform: skew(12deg);
+    margin-right: -65px;
+    align-items: start;
+    background-image: linear-gradient(-45deg, #8F479A 1%, #20A7FE 100%);
+  }
+
+  .go-arrow {
+    transform: skew(-6deg);
+    margin-left: -12px;
+    margin-top: 9px;
+    opacity: 0;
+  }
+
+  &:hover {
+    border: 1px solid #20A7FE;
+  }
+
+  h3 {
+    margin-top: 8px;
+  }
+}
+
+.latestCard:hover {
+  .go-corner {
+    margin-right: -20px;
+  }
+
+  .go-arrow {
+    opacity: 1;
+  }
+}
+/* Latest Update Section End */
+
+/* Original Work Section start */
+.card {
+  position: relative;
+  margin: 20px 8px;
+  width: 255px;
+  height: 300px;
+  background: #fff;
+  transform-style: preserve-3d;
+  transform: perspective(2000px);
+  transition: 1s;
+  box-shadow: inset 100px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover {
+  z-index: 11;
+  transform: perspective(2000px) rotate(-0deg);
+  box-shadow: inset 20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.card .img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  transform-origin: left;
+  z-index: 1;
+  transition: 1s;
+}
+
+.card .img-container img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card:hover .img-container {
+  transform: rotateY(-135deg);
+}
+
+.card .card-details {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  padding: 20px;
+  color: #000;
+}
+
+.card .card-details p {
+  margin: 0;
+  padding: 0;
+  line-height: 25px;
+  font-size: 1em;
+}
+/* Original Work Section End */
+
+.bg-primary {
+  background-color: #282c34;
+}
+
+.inputWidth {
+  width: 50%;
+  -webkit-transition: width .35s ease-in-out;
+  transition: width .35s ease-in-out;
+}
+
+.inputWidth:focus {
+  width: 220px;
+}
+
+.bg-primary-light {
+  background-color: #383c44;
+}
+
+.slideBtn {
+  box-shadow: inset 0 0 0 0 #FFFF;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-in-out .8s;
+}
+
+.sliderRight:hover {
+  box-shadow: inset 400px 0 0 0 #FFFF;
+  color: black;
+}
+
+.gradient {
+  background-image: linear-gradient(135deg, black, rgb(151, 149, 149), black);
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.announcement-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.announcement-scroll::-webkit-scrollbar-thumb {
+  background-color: #888888;
+  border-radius: 8px;
+}
+
+#announcement .swiper-pagination {
+  position: relative !important;
+}
+
+.css-1qiwsg5-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+  padding: 0px 9px !important;
+}
+
+.css-1s2g1qm-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+  padding: 0px 9px !important;
+}
+
+.css-1deuicl .MuiOutlinedInput-root .MuiAutocomplete-input {
+  padding: 0px 9px !important;
+}
+
+.css-qspliw .MuiOutlinedInput-root .MuiAutocomplete-input {
+  padding: 0px 9px !important;
+}
