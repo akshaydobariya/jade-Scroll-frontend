@@ -1,22 +1,21 @@
 'use client'
-import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
-import Rating from '@mui/material/Rating';
+import React, { useEffect, useState, useMemo, useCallback } from 'react'
+import { BOOKMARK } from '@/app/Redux/slice/userSlice';
+import LoginBox from '@/components/LoginBox';
+import useApiService from '@/services/ApiService';
 import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
 import BookmarkAddedOutlinedIcon from '@mui/icons-material/BookmarkAddedOutlined';
-import useApiService from '@/services/ApiService';
-import { useRouter } from 'next/navigation';
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
 import CloseIcon from '@mui/icons-material/Close';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { Box, Modal } from '@mui/material';
+import Rating from '@mui/material/Rating';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
-import { BOOKMARK, BOOKMARK_REMOVE } from '@/app/Redux/slice/userSlice';
-import { Box, Modal } from '@mui/material';
-import LoginBox from '@/components/LoginBox';
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const style = {
     position: 'absolute',
@@ -28,55 +27,48 @@ const style = {
     p: 2,
 };
 function FeaturedBook(props) {
-    const { bookmarkNovel, getFeaturedProduct } = useApiService()
-    const router = useRouter()
+    const { bookmarkNovel, getFeaturedProduct } = useApiService();
     const [saveBookmark, setSaveBookmark] = useState('bookmark')
     const [centerNovelData, setCenterNovelData] = useState()
     const dispatch = useDispatch()
     const bookmarkData = useSelector((state) => state?.user?.bookmark)
     const [openModal, setOpenModal] = useState(false);
     const [featuredNovelData, setFeaturedNovelData] = useState([]);
-    // useEffect(() => {
-    //     setCenterNovelData(featuredNovelData[0])
-    // }, [saveBookmark])
-
-    useEffect(()=>{
-        getFeaturedProduct().then((res)=>{
-            setFeaturedNovelData(res?.data?.data);
-            setCenterNovelData(res?.data?.data[0])
-        }).catch((err)=>{
-            console.log(err);
-        })
-    }, [])
-
-    const novelBookmark = (id) => {
-        if (localStorage.getItem('token')) {
-            bookmarkNovel(id).then((res) => {
-                if (res?.data?.data == "novel has been saved!") {
-                    setSaveBookmark('RemoveBookmark')
-                    dispatch(BOOKMARK([...bookmarkData, { novelId: id, notification: true }]))
-                } else {
-                    setSaveBookmark('bookmark')
-                    let dataFilter = bookmarkData?.filter((reduxId) => reduxId?.novelId !== id)
-                    dispatch(BOOKMARK(dataFilter))
-                }
-                toast.success(res?.data?.data)
-            }).catch((er) => {
-                console.log(er);
-            })
-        } else {
-            setOpenModal(true)
-            //  router.push('/login')
-        }
-    }
-
-    const [activeIndex, setActiveIndex] = useState(0)
-    const [activeId, setActiveId] = useState(null)
+    const [activeIndex, setActiveIndex] = useState(0);
 
     useEffect(() => {
-        const activeItem = featuredNovelData?.[activeIndex];
-        setActiveId(activeItem);
-    }, [activeIndex, featuredNovelData]);
+        getFeaturedProduct()
+            .then((res) => {
+                const data = res?.data?.data || [];
+                setFeaturedNovelData(data);
+                setCenterNovelData(data[0]);
+            })
+            .catch((err) => console.error(err));
+    }, []);
+
+
+    const novelBookmark = useCallback((id) => {
+        if (localStorage.getItem('token')) {
+            bookmarkNovel(id)
+                .then((res) => {
+                    const message = res?.data?.data;
+                    if (message === "novel has been saved!") {
+                        setSaveBookmark('RemoveBookmark');
+                        dispatch(BOOKMARK([...bookmarkData, { novelId: id, notification: true }]));
+                    } else {
+                        setSaveBookmark('bookmark');
+                        const dataFilter = bookmarkData?.filter((reduxId) => reduxId?.novelId !== id);
+                        dispatch(BOOKMARK(dataFilter));
+                    }
+                    toast.success(message);
+                })
+                .catch((er) => console.error(er));
+        } else {
+            setOpenModal(true);
+        }
+    }, [bookmarkData, bookmarkNovel, dispatch]);
+
+    const activeId = useMemo(() => featuredNovelData?.[activeIndex], [activeIndex, featuredNovelData]);
 
 
     const settings = {
