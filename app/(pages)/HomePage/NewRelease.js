@@ -15,9 +15,9 @@ function NewRelease() {
 
     useEffect(() => {
         getNovels().then((res) => {
-            setNewReleaseNovelData(res?.data?.data);
+            setNewReleaseNovelData(res?.data?.data || []);
         }).catch((err) => {
-            console.log(err);
+            console.error("Error fetching novels:", err);
         });
     }, []);
 
@@ -25,7 +25,11 @@ function NewRelease() {
         <div className='md:pt-10 pt-10 px-4 md:px-8'>
             <div className='flex justify-between items-center pb-5'>
                 <div className='text-2xl md:text-2xl font-bold'>New Releases</div>
-                {newReleaseNovelData?.length > 6 && <Link href={{ pathname: `novel-list/latest-More` }} className='underline cursor-pointer'>See More</Link>}
+                {newReleaseNovelData.length > 6 && (
+                    <Link href={`/novel-list/latest-More`} prefetch>
+                        <a className='underline cursor-pointer'>See More</a>
+                    </Link>
+                )}
             </div>
 
             <div className='md:hidden block'>
@@ -42,18 +46,20 @@ function NewRelease() {
                         1024: { slidesPerView: 6 },
                     }}
                 >
-                    {newReleaseNovelData?.map((item, index) => (
+                    {newReleaseNovelData.map((item, index) => (
                         <SwiperSlide key={index}>
                             <div className={`${index === title ? '' : 'before:z-0'} NewReleaseCard cursor-pointer rounded-2xl overflow-hidden`} >
                                 <Link href={`/detail/view/${item?._id}`} prefetch>
-                                    <Image
-                                        src={item?.coverImg || ""}
-                                        height={300}
-                                        width={200}
-                                        alt='cover'
-                                        className='releaseImage'
-                                        loading="lazy" // Lazy loading added here
-                                    />
+                                    <a>
+                                        <img
+                                            src={item?.coverImg || "/placeholder.jpg"} // Provide a placeholder or default image URL
+                                            height={300}
+                                            width={200}
+                                            alt='cover'
+                                            className='releaseImage'
+                                            loading="lazy"
+                                        />
+                                    </a>
                                 </Link>
                                 <div className={index === title ? "info" : ""}>
                                     <h1 className='font-semibold'>{item?.title || ''}</h1>
@@ -81,21 +87,23 @@ function NewRelease() {
                         1024: { slidesPerView: 6 },
                     }}
                 >
-                    {newReleaseNovelData?.map((item, index) => (
+                    {newReleaseNovelData.map((item, index) => (
                         <SwiperSlide key={index} className="containerImage cursor-pointer">
                             <Link href={`/detail/view/${item?._id}`} prefetch>
-                                <Image
-                                    src={item?.coverImg || ""}
-                                    height={300}
-                                    width={200}
-                                    alt='cover'
-                                    className='rounded-md h-auto max-h-[280px] object-cover aspect-auto'
-                                    loading="lazy" // Lazy loading added here
-                                />
-                                <div className="textImage px-2">
-                                    <h1 className='font-semibold pb-1 pt-1'>{item?.title?.slice(0, 30)}</h1>
-                                    <p>{item?.description?.slice(0, 110)}</p>
-                                </div>
+                                <a>
+                                    <Image
+                                        src={item?.coverImg || "/placeholder.jpg"} // Provide a placeholder or default image URL
+                                        height={300}
+                                        width={200}
+                                        alt='cover'
+                                        className='rounded-md h-auto max-h-[280px] object-cover aspect-auto'
+                                        loading="lazy"
+                                    />
+                                    <div className="textImage px-2">
+                                        <h1 className='font-semibold pb-1 pt-1'>{item?.title?.slice(0, 30)}</h1>
+                                        <p>{item?.description?.slice(0, 110)}</p>
+                                    </div>
+                                </a>
                             </Link>
                         </SwiperSlide>
                     ))}
